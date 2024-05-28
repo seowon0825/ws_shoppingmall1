@@ -37,7 +37,7 @@
         			<tr>
         				<td>상품 재고 :&nbsp;</td>
         				<td><input type="number" class="form-control" name="product_inventory" placeholder="상품 재고"></td>
-        				<input type="hidden" name="product_soldout" value="0"><!-- 0은 품절. 상품 등록시에 바로 상품 올라가기 방지 -->
+        				<input type="hidden" name="product_soldout" value="1"><!-- 0은 품절. 상품 등록시에 바로 상품 올라가기 방지 -->
         			</tr>
         			<tr>
         				<td>상품 첫 입고일자 :&nbsp;</td>

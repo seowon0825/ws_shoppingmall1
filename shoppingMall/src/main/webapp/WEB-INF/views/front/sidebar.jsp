@@ -15,7 +15,7 @@
             <li><a href="#">New Arrivals</a></li>
             <c:choose>
             	<c:when test="${not empty sessionScope.loginMember and sessionScope.loginMember.role ne 'ROLE_ADMIN'}">
-            		<li><a href="/">Cart</a></li>
+            		<li><a href="/basket/putBasket">Cart</a></li>
             		<li><a href="/logout">logout</a></li>
             	</c:when>
             	<c:when test="${empty sessionScope.loginMember and sessionScope.loginMember.role ne 'ROLE_ADMIN'}">

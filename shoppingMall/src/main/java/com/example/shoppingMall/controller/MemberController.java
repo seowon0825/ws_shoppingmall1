@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.shoppingMall.dao.IAdminDao;
 import com.example.shoppingMall.dao.IMemberDao;
 import com.example.shoppingMall.dto.Member;
 
@@ -16,13 +17,20 @@ public class MemberController {
 	
 	@Autowired
 	private IMemberDao memDao;
+	@Autowired
+	private IAdminDao adminDao;
 	
+	//메인 페이지
+	//신상 리스트
+	//판매순 상품 리스트
 	@RequestMapping("/")
-	public String mainPage() {
-		
-		return "mainPage";
+	public String mainPage(Model model) {
+		//판매중인 상품 리스트
+		model.addAttribute("productList", memDao.getSaleProductList());
+		return "/member/memberMainPage";
 	}
 	
+	//로그인 회원가입
 	@RequestMapping("/loginForm")
 	public String LoginForm() {
 		
@@ -71,4 +79,16 @@ public class MemberController {
 		session.removeAttribute("loginMember");
 		return "mainPage";
 	}
+	
+	//판매중인 상품 리스트
+	@RequestMapping("/memberProductDetail")
+	public String memberProductDetail(HttpServletRequest request, Model model) {
+		String product_no = request.getParameter("product_no");
+		model.addAttribute("dto", adminDao.getProductDetail(product_no));
+		return "/member/productDetail";
+	}
+	
+	
+	
+	
 }

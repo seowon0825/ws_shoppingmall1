@@ -13,4 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="userInfo">
 		SELECT * FROM member WHERE mem_username = #{mem_username}
 	</select>
+	<select id="getSaleProductList">
+		select * from product where product_soldout = 1;
+	</select>
 </mapper>
