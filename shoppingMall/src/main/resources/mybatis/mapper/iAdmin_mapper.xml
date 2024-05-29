@@ -18,10 +18,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="productDelete">
 		DELETE FROM product WHERE product_no = #{product_no}
 	</delete>
-	<update id="productModify">
+	<update id="productImgModify">
 		UPDATE product SET product_name = #{product_name}, product_price = #{product_price}, 
-		product_info = #{product_info}, product_inventory = #{product_inventory}, 
-		product_soldout = #{product_soldout}, product_warehousinng = #{product_warehousinng}, imgurl = #{imgurl}
+		product_info = #{product_info}, product_inventory = #{product_inventory},
+		 product_warehousinng = #{product_warehousinng}, imgurl = #{imgurl}
 		WHERE product_no = #{product_no}
 	</update>
 </mapper>

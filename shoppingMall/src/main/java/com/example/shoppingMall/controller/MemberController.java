@@ -54,7 +54,7 @@ public class MemberController {
 		if(result == 1) {
 			Member member = (Member)memDao.userInfo(mem_username);
 			session.setAttribute("loginMember", member);
-			return "mainPage";
+			return "redirect:/";
 		} else {
 			model.addAttribute("errorMessage", "아이디나 비밀번호가 틀렸습니다. 다시 입력해주세요.");
 			return "/member/loginForm";
@@ -71,13 +71,13 @@ public class MemberController {
 		String role = request.getParameter("role");
 		
 		memDao.signUp(mem_username, mem_pw, mem_name, mem_tel, mem_addr, role);
-		return "mainPage";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginMember");
-		return "mainPage";
+		return "redirect:/";
 	}
 	
 	//판매중인 상품 리스트

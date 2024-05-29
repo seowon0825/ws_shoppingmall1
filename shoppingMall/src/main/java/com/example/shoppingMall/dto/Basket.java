@@ -12,4 +12,8 @@ public class Basket {
 	private int mem_no;
 	private int product_no;
 	private int basket_quantity;
+	private String imgurl;
+	private String product_name;
+	private int product_price;
+	private int product_inventory;
 }

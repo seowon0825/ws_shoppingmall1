@@ -16,7 +16,7 @@
     <main>
         <div class="container">
         	<h1 class="pageTitle">상품 등록</h1>
-        	<form action="/admin/regProduct" method="post">
+        	<form action="/admin/productModify" method="post">
         		<table class="centered-table">
         			<tr>
         				<td>상품 이름 :&nbsp;</td>
@@ -32,26 +32,22 @@
         			</tr>
         			<tr>
         				<td>상품 이미지 :&nbsp;</td>
-        				<td><input type="url" class="form-control" name="imgurl" value="${dto.imgurl}"></td>
+        				<td>
+        					<input type="url" class="form-control" name="imgurl" value="${dto.imgurl}">
+        					<input type="hidden" class="form-control" name="originalImgurl" value="${dto.imgurl}">
+        				</td>
         			</tr>
         			<tr>
         				<td>상품 재고 :&nbsp;</td>
         				<td><input type="number" class="form-control" name="product_inventory" placeholder="상품 재고" value="${dto.product_inventory}"></td>
         			</tr>
         			<tr>
-        				<td>상품 판매여부 :&nbsp;</td>
-        				<td>
-        					미판매 <input type="radio" name="product_soldout" value="0" ${dto.product_soldout == 0 ? 'checked' : '' }>
-        					판매 <input type="radio" name="product_soldout" value="1" ${dto.product_soldout == 1 ? 'checked' : '' }>
-        				</td>
-        			</tr>
-        			<tr>
         				<td>상품 첫 입고일자 :&nbsp;</td>
         				<td><input type="date" class="form-control" name="product_warehousinng" value="${dto.product_warehousinng}"></td>
         			</tr>
         			<tr>
-        				<td></td>
-        				<td><input type="submit" class="btn btn-light" value="상품 등록하기"></td>
+        				<td><input type="hidden" name="product_no" value="${dto.product_no }"></td>
+        				<td><input type="submit" class="btn btn-light" value="상품 수정하기"></td>
         			</tr>
         		</table>
         	</form>

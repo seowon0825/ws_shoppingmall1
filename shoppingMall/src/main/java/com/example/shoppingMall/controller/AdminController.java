@@ -15,6 +15,7 @@ public class AdminController {
 	
 	@Autowired
 	private IAdminDao adminDao;
+	
 	@RequestMapping("/dashboard")
 	public String adminIndex() {
 		
@@ -64,8 +65,16 @@ public class AdminController {
 	
 	@RequestMapping("/productModify")
 	public String productModify(HttpServletRequest request) {
+		String product_name = request.getParameter("product_name");
+		String product_price = request.getParameter("product_price");
+		String product_info = request.getParameter("product_info");
+		String product_inventory = request.getParameter("product_inventory");
+		String product_warehousinng = request.getParameter("product_warehousinng");
+		String product_no = request.getParameter("product_no");
+		String imgurl = request.getParameter("imgurl");
 		
-		return "";
+		adminDao.productImgModify(product_name, product_price, product_info, product_inventory, product_warehousinng, imgurl, product_no);
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/productDelete")

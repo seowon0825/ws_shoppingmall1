@@ -36,8 +36,16 @@
             	</tr>
             </tbody>	
             </table>
-			<a href="" class="btn btn-light">장바구니 담기</a>
-			<a href=" " class="btn btn-light">바로 구매하기</a>
+            <c:choose>
+            	<c:when test="${dto.product_inventory == 0}">
+            		<div class="btn-light">품절</div>
+            	</c:when>
+            	<c:otherwise>
+            		<a href="/basket/putBasket?product_no=${dto.product_no }" class="btn btn-light">장바구니 담기</a>
+					<a href="/basket/oneProductOrder?product_no=${dto.product_no }" class="btn btn-light">바로 구매하기</a>
+            	</c:otherwise>
+            </c:choose>
+			
         </div>
     </main>
 	<c:if test="${not empty errorMsg }">

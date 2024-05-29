@@ -14,12 +14,12 @@
     <header>
         <div class="container">
             <button class="menu-btn" onclick="toggleSidebar(event)">☰</button>
-            <a href="../" class="logo">LOGO</a>
+            <a href="/" class="logo">LOGO</a>
             <c:if test="${sessionScope.loginMember.role eq 'ROLE_ADMIN'}">
             	<a href="/admin/dashboard" class="btn btn-light">관리자 모드</a>
             </c:if>
             <c:if test="${not empty sessionScope.loginMember and sessionScope.loginMember.role ne 'ROLE_ADMIN'}">
-            	<a href="/basket/putBasket">${sessionScope.loginMember.mem_username }님의 장바구니</a>
+            	<a href="/basket/basketList">${sessionScope.loginMember.mem_username }님의 장바구니</a>
             </c:if>
             
         </div>

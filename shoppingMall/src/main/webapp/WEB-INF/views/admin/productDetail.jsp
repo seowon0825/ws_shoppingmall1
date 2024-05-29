@@ -22,7 +22,6 @@
             	<tr>
             		<th scope="col">상품 이미지</th>
             		<th scope="col">상품 번호</th>
-            		
             		<th scope="col">상품 이름</th>
             		<th scope="col">상품 가격</th>
             		<th scope="col">상품 재고</th>

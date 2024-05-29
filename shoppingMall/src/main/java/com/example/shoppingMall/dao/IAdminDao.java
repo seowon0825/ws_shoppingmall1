@@ -13,4 +13,7 @@ public interface IAdminDao {
 	public List<Product> getProductList();
 	public Product getProductDetail(@Param("product_no") String product_no);
 	public void productDelete(@Param("product_no") String product_no);
+	public void productImgModify(@Param("product_name") String product_name, @Param("product_price") String product_price, @Param("product_info") String product_info, @Param("product_inventory") String product_inventory, @Param("product_warehousinng") String product_warehousinng, @Param("imgurl") String imgurl, @Param("product_no") String product_no);
+	public void productModify(@Param("product_name") String product_name, @Param("product_price") String product_price, @Param("product_info") String product_info, @Param("product_inventory") String product_inventory, @Param("product_warehousinng") String product_warehousinng, @Param("product_no") String product_no);
+
 }

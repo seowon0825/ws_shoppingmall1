@@ -2,9 +2,35 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.shoppingMall.dao.IMemberDao">
+<mapper namespace="com.example.shoppingMall.dao.IBasketDao">
 	<insert id="inputBasket">
 		insert into basket (mem_no,product_no,basket_quantity)
 		values (#{mem_no}, #{product_no}, #{basket_quantity})
 	</insert>
+	<select id="getBasketList">
+		SELECT b.basket_no, b.mem_no, p.product_no, p.product_name, p.product_price, b.basket_quantity, p.imgurl
+		FROM basket b
+		JOIN product p
+		ON b.product_no = p.product_no
+		WHERE mem_no = #{mem_no};
+	</select>
+	<insert id="order">
+		INSERT INTO orders (order_no, product_no, mem_no, order_addr, product_order_date, product_order_quantity)
+		VALUES (#{order_no}, #{product_no}, #{mem_no}, #{order_addr}, NOW(), #{product_order_quantity})
+	</insert>
+	<select id="checkInventory">
+		SELECT product_inventory FROM product WHERE product_no = #{product_no} 
+	</select>
+	<update id="minusInventory">
+		UPDATE product SET product_inventory = #{product_inventory}-(#{product_order_quantity}) WHERE product_no = #{product_no} 
+	</update>
+	<select id="smallOrder">
+		SELECT b.product_no
+		FROM basket b
+		JOIN product p
+		ON b.product_no = p.product_no
+		WHERE p.product_inventory &lt; b.basket_quantity
+		GROUP BY b.product_no;
+	</select>
+	
 </mapper>
