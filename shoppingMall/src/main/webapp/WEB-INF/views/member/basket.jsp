@@ -32,7 +32,7 @@
 	<tbody class="table-group-divider">
 		<c:forEach var="dto" items="${basketList }">
 		<tr class="border-bottom">
-			<td><input type="checkbox" class="orderCheckbox" name="selectedProduct[]" value="${dto.product_no }"></td>
+			<td><input type="checkbox" class="orderCheckbox" name="choiceOrder" value="${dto.product_no }"></td>
 			<td><img src="${dto.imgurl }" class="adminProductImg"></td>
 			<td><a href="/memberProductDetail?product_no=${dto.product_no }">${dto.product_name }</a></td>
 			<td id="price${dto.product_no }">${dto.product_price }원</td>
@@ -49,7 +49,6 @@
 	</tfoot>
 	</table>
 	<a href="" class="btn btn-light">선택한 상품 삭제하기</a>
-	<a href="" class="btn btn-light">변동된 장바구니 사항 저장하기</a>
 	<button type="submit" class="btn btn-light" >선택한 상품 주문하기</button>
 </form>
 </div>

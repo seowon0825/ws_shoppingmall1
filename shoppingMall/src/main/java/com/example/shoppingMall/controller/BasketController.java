@@ -1,13 +1,9 @@
 package com.example.shoppingMall.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.shoppingMall.dao.IAdminDao;
 import com.example.shoppingMall.dao.IBasketDao;
@@ -50,7 +46,7 @@ public class BasketController {
 			return "redirect:/";
 		}
 	}
-	//바로 구매하기
+	
 	@RequestMapping("/oneProductOrder")
 	public String oneProductOrder(HttpServletRequest request, Model model,HttpSession session) {
 		Member member = (Member)session.getAttribute("loginMember");
@@ -63,33 +59,9 @@ public class BasketController {
 			return "member/loginForm";
 		}
 	}
-	//바로 구매하기
-	@RequestMapping("/oneOrderForm")
-	public String oneOrderForm(HttpServletRequest request, HttpSession session, Model model) {
-		Member member = (Member)session.getAttribute("loginMember");
-		model.addAttribute("dto", member);
-		
-		String product_no = request.getParameter("product_no");
-		model.addAttribute("product_no", product_no);
-		
-		String quantity = request.getParameter("product_order_quantity");
-		model.addAttribute("product_order_quantity", quantity);
-		return "member/orderForm";
-	}
-	
-	@RequestMapping("/productOrder")
-	public String productOrder(@RequestParam("selectedProduct[]") List<Integer> selectedProducts, HttpServletRequest request, Model model) {
-		
-		return "";
-	}
 	
 	@RequestMapping("/orderForm")
-	public String orderForm(@RequestParam("selectedProduct[]") List<Integer> selectedProducts, HttpServletRequest request, HttpSession session, Model model) {
-		for(Integer product_no : selectedProducts) {
-			System.out.println(product_no);
-			model.addAttribute("product_no", product_no);
-		}
-		
+	public String orderForm(HttpServletRequest request, HttpSession session, Model model) {
 		Member member = (Member)session.getAttribute("loginMember");
 		model.addAttribute("dto", member);
 		
