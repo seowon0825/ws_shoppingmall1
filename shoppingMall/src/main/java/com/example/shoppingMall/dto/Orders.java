@@ -17,4 +17,6 @@ public class Orders {
 	private String order_addr;
 	private Date product_order_date;
 	private int product_order_quantity;
+	private String product_name;
+	private int product_price;
 }

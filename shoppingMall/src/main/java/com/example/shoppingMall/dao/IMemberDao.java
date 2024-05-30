@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.example.shoppingMall.dto.Member;
+import com.example.shoppingMall.dto.Orders;
 import com.example.shoppingMall.dto.Product;
 
 @Mapper
@@ -19,6 +20,7 @@ public interface IMemberDao {
 	public Member userInfo(@Param("mem_username") String mem_username);
 	//판매중인 상품 리스트
 	public List<Product> getSaleProductList();
-	//상품 디테일
+	//구매 목록
+	public List<Orders> getOrderList(@Param("mem_no") int mem_no);
 	
 }

@@ -16,4 +16,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getSaleProductList">
 		select * from product where product_soldout = 1;
 	</select>
+	<select id="getOrderList">
+		SELECT o.ono, o.order_no, o.product_no, o.mem_no, o.order_addr, o.product_order_date, o.product_order_quantity, p.product_name, p.product_price
+		FROM orders o
+		JOIN product p
+		ON o.product_no = p.product_no
+		WHERE mem_no = #{mem_no}
+	</select>
 </mapper>

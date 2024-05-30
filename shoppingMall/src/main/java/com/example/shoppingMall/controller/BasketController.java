@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.shoppingMall.dao.IAdminDao;
 import com.example.shoppingMall.dao.IBasketDao;
+import com.example.shoppingMall.dto.Basket;
 import com.example.shoppingMall.dto.Member;
 
 import jakarta.servlet.http.HttpServletRequest;

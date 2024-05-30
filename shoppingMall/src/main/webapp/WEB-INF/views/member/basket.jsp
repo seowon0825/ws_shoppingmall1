@@ -27,6 +27,7 @@
 			<th scope="col">상품 이름</th>
 			<th scope="col">상품 가격</th>
 			<th scope="col">상품 수량</th>
+			<th scope="col">합계액</th>
 		</tr>
 	</thead>
 	<tbody class="table-group-divider">

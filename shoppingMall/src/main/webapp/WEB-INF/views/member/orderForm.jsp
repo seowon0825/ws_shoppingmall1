@@ -44,11 +44,6 @@
 			</tr>
 		</table>
   	</form>
-  	<c:if test="${not empty message }">
-  		<script>
-  			aleart("${message}");
-  		</script>
-  	</c:if>
   </div>
 </main>
 <jsp:include page="../front/footer.jsp"></jsp:include>

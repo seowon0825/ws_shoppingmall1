@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Side Bar</title>
+<link rel="stylesheet" href="../css/productList.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body onclick="closeSidebar(event)">
@@ -16,7 +17,7 @@
             <c:choose>
             	<c:when test="${not empty sessionScope.loginMember and sessionScope.loginMember.role ne 'ROLE_ADMIN'}">
             		<li><a href="/basket/basketList">Cart</a></li>
-            		<li><a href="/basket/basketList">주문내역</a></li>
+            		<li><a href="/orderList">주문내역</a></li>
             		<li><a href="/logout">logout</a></li>
             	</c:when>
             	<c:when test="${empty sessionScope.loginMember and sessionScope.loginMember.role ne 'ROLE_ADMIN'}">

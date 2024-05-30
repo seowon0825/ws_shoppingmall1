@@ -34,3 +34,15 @@
         grid-template-columns: 1fr; /* 600px 이하에서는 1열로 변경 */
     }
 }
+
+/* 사이드바 스타일 */
+.sidebar {
+  position: relative; /* 포지셔닝 설정 */
+  z-index: 2; /* 사이드바를 더 앞으로 오게 설정 */
+}
+
+/* 캐러셀 스타일 */
+.carousel-inner {
+  position: relative; /* 포지셔닝 설정 */
+  z-index: 1; /* 캐러셀을 더 뒤로 오게 설정 */
+}

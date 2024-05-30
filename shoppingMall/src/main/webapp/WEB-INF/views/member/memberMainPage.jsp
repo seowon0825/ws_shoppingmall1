@@ -20,17 +20,12 @@
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="..." class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="https://autumnshop.kr/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/1325657cb6ec06f6eee0ed5677242222.jpg" class="d-block w-100" alt="...">
                   </div>
                 </div>
               </div>
-              <h3>판매중인 상품</h3>
+              <br>
+              <h5>판매중인 상품</h5>
               <div class="products-grid">
                 <c:forEach var="list" items="${productList}">
                 <div class="product">

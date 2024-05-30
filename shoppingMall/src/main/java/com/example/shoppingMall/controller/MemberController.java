@@ -88,6 +88,15 @@ public class MemberController {
 		return "/member/productDetail";
 	}
 	
+	//구매내역 리스트
+	@RequestMapping("/orderList")
+	public String orderList(Model model, HttpSession session) {
+		Member member = (Member)session.getAttribute("loginMember");
+		int mem_no = member.getMem_no();
+		model.addAttribute("list", memDao.getOrderList(mem_no));
+		return "member/myOrderList";
+	}
+	
 	
 	
 	
