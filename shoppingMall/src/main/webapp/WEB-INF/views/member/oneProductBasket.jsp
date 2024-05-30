@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +47,7 @@
     	</tr>
     </tfoot>
     </table>
-    <a href="/basket/orderForm?product_no=${dto.product_no }&product_order_quantity=1" class="btn btn-light" >결제하기</a>
+    <a href="/basket/oneOrderForm?product_no=${dto.product_no }&product_order_quantity=1" class="btn btn-light" >결제하기</a>
   </div>
 </main>
 <jsp:include page="../front/footer.jsp"></jsp:include>

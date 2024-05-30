@@ -27,20 +27,20 @@ function updatePrice(productNo, unitPrice){
 	var quantity = document.getElementById('quantity'+productNo).value;
 	var newPrice = unitPrice * quantity;
 	document.getElementById('price'+productNo).innerHTML = newPrice.toLocaleString()+'원';
+	updateGrandTotal();
 }
 
 function updateGrandTotal(){
 	var total = 0;
-	document.querySelectorAll('.orderCheckbox:checked').forEach(box => {
-		var row = box.closest('tr');
-		var priceElement = row.querySelector('[id^="price"]');
-		var quantityInput = row.querySelector('input[type="number"]');
-		
-		var price = parseInt(priceElement.textContent.replace(/[^0-9]/g,''),10);
-		var quantity = parseInt(quantityInput.value, 10);
-		
-		total += price;
-	});
+	var checkboxes = document.getElementsByClassName('.orderCheckbox');
+	for(var i = 0 ; i < checkboxes.length; i++){
+		var productNo = checkboxes[i].value;
+		if(checkboxes[i].checked){
+			var priceElement = document.getElementById('price' + productNo);
+			total += parseInt(priceElement.innerText.replace('원',''));
+		}
+	}
+	
 	document.getElementById('grandTotal').textContent = '총 합계 : ' + total.toLocaleString() + '원';
 }
 
